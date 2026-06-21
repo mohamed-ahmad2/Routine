@@ -1,0 +1,78 @@
+## ─────────────────────────────────────────────
+## .NET / Visual Studio (Routine Backend)
+## ─────────────────────────────────────────────
+bin/
+obj/
+out/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+## ASP.NET Core secrets — never commit real connection strings or API keys
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+## EF Core local db files (if SQLite is ever used for quick local testing)
+*.db
+*.db-shm
+*.db-wal
+
+## ─────────────────────────────────────────────
+## Python (Routine Frontend)
+## ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environment variables / secrets
+.env
+.env.local
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+## ─────────────────────────────────────────────
+## IDEs / Editors (shared across both projects)
+## ─────────────────────────────────────────────
+.idea/
+.vscode/
+
+## ─────────────────────────────────────────────
+## OS-generated files
+## ─────────────────────────────────────────────
+.DS_Store
+Thumbs.db
