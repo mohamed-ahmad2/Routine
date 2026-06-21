@@ -40,8 +40,6 @@ Routine/
 The API is intentionally **not** built with a full Clean/Onion Architecture (multiple `.csproj` layers, generic repositories, etc.). The domain logic here is straightforward CRUD plus scheduling and aggregation — it doesn't carry the complexity that justifies that level of layering. Instead:
 
 - **Vertical Slice Architecture** — each feature (`CreateReminder`, `LogReminderAction`, `GetWeeklyAnalytics`, ...) lives in its own folder with everything it needs: command/query, handler, validator, and endpoint. Changing one feature never requires touching unrelated code.
-- **MediatR** for a lightweight CQRS pattern — endpoints send a request, the matching handler executes it. No shared "God service" accumulating every operation.
-- **Minimal APIs** instead of MVC Controllers — each endpoint is mapped right next to its slice, keeping the route definition close to the logic it triggers.
 - **EF Core + SQL Server** — single source of truth from day one. No local SQLite cache; the desktop client talks to the API directly over HTTP.
 - **No authentication in v1** — this is a two-person personal tool, not a multi-tenant product. Auth can be added later as its own slice without restructuring anything.
 
