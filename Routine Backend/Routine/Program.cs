@@ -1,6 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using Routine.Common.Persistence;
+using Routine.Interface;
+using Routine.Repository;
+using Routine.Service;
 
 namespace Routine
 {
@@ -19,7 +22,10 @@ namespace Routine
 
             builder.Services.AddDbContext<RoutineDbContext>(options =>
                 options.UseSqlServer(connectionString));
+            builder.Services.AddScoped<IRemindersRepository, RemindersRepository>();
+            builder.Services.AddScoped<IRemindersService, RemindersService>();
 
+            builder.Services.AddControllers();
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
