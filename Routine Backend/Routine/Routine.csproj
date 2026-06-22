@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.28" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.28">
       <PrivateAssets>all</PrivateAssets>
@@ -35,7 +36,6 @@
     <Folder Include="Features\ReminderLogs\LogReminderAction\" />
     <Folder Include="Features\ReminderLogs\GetReminderLogs\" />
     <Folder Include="Features\Reminders\CreateReminder\" />
-    <Folder Include="Features\Reminders\GetReminders\" />
     <Folder Include="Features\Reminders\DeleteReminder\" />
     <Folder Include="Features\Reminders\ToggleReminderEnabled\" />
     <Folder Include="Features\Reminders\UpdateReminder\" />

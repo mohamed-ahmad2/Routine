@@ -1,6 +1,6 @@
-﻿namespace Routine.DTO
+﻿namespace Routine.Features.Reminders.GetReminders
 {
-    public class ReminderDto
+    public class GetReminderDto
     {
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -15,6 +15,6 @@
         public bool IsPreset { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public List<ReminderScheduleDto> Schedules { get; set; } = new();
+        public List<GetReminderScheduleDto> Schedules { get; set; } = new();
     }
 }

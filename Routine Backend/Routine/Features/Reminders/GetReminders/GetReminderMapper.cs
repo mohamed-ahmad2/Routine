@@ -1,11 +1,10 @@
-﻿using Routine.DTO;
-using Routine.Entities;
+﻿using Routine.Entities;
 
-namespace Routine.Mapper
+namespace Routine.Features.Reminders.GetReminders
 {
-    public static class ReminderMapper
+    public static class GetReminderMapper
     {
-            public static ReminderDto ToDto(Reminder reminder) => new() 
+            public static GetReminderDto ToDto(Reminder reminder) => new() 
             {
                 Id = reminder.Id,
                 UserId = reminder.UserId,
@@ -22,7 +21,7 @@ namespace Routine.Mapper
                 UpdatedAt = reminder.UpdatedAt,
                 Schedules = reminder.Schedules.Select(ToScheduleDto).ToList()
             };
-        public static ReminderScheduleDto ToScheduleDto(ReminderSchedule schedule) => new()
+        public static GetReminderScheduleDto ToScheduleDto(ReminderSchedule schedule) => new()
         {
             Id = schedule.Id,
             ScheduleType = schedule.ScheduleType.ToString(),
@@ -31,6 +30,6 @@ namespace Routine.Mapper
             DaysOfWeekMask = schedule.DaysOfWeekMask,
             IsActive = schedule.IsActive
         };
-        public static List<ReminderDto> ToDtoList(IEnumerable<Reminder> reminders) => reminders.Select(ToDto).ToList();
+        public static List<GetReminderDto> ToDtoList(IEnumerable<Reminder> reminders) => reminders.Select(ToDto).ToList();
     }
 }

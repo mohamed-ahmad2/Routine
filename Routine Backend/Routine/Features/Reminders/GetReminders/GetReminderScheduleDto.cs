@@ -1,6 +1,6 @@
-﻿namespace Routine.DTO
+﻿namespace Routine.Features.Reminders.GetReminders
 {
-    public class ReminderScheduleDto
+    public class GetReminderScheduleDto
     {
         public int Id { get; set; }
         public string ScheduleType { get; set; } = string.Empty;

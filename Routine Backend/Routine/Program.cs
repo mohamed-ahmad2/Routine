@@ -1,9 +1,5 @@
-
 using Microsoft.EntityFrameworkCore;
 using Routine.Common.Persistence;
-using Routine.Interface;
-using Routine.Repository;
-using Routine.Service;
 
 namespace Routine
 {
@@ -13,19 +9,21 @@ namespace Routine
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
+  
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
+ 
             builder.Services.AddDbContext<RoutineDbContext>(options =>
-                options.UseSqlServer(connectionString));
-            builder.Services.AddScoped<IRemindersRepository, RemindersRepository>();
-            builder.Services.AddScoped<IRemindersService, RemindersService>();
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddControllers();
+ 
+            builder.Services.AddMediatR(cfg =>
+                cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
+     
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
@@ -35,12 +33,8 @@ namespace Routine
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }
