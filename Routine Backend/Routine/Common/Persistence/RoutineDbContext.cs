@@ -25,6 +25,7 @@ namespace Routine.Common.Persistence
             {
                 entity.HasKey(u => u.Id);
                 entity.Property(u => u.DisplayName).HasMaxLength(100).IsRequired();
+                entity.Property(u => u.DeviceId).HasMaxLength(36).IsRequired();
                 entity.Property(u => u.AvatarPath).HasMaxLength(500);
                 entity.Property(u => u.City).HasMaxLength(100).IsRequired();
                 entity.Property(u => u.Country).HasMaxLength(100).IsRequired();
