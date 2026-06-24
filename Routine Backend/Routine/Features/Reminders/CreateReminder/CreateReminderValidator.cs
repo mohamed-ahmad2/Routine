@@ -22,7 +22,7 @@ namespace Routine.Features.Reminders.CreateReminder
                 .NotEmpty().WithMessage("At least one schedule is required");
 
             RuleForEach(x => x.Schedules)
-                .SetValidator(new CreateReminderScheduleDtoValidator());
+                .SetValidator(new CreateReminderScheduleValidator());
         }
     }
 }

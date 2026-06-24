@@ -3,9 +3,9 @@ using Routine.Entities;
 
 namespace Routine.Features.Reminders.CreateReminder
 {
-    public class CreateReminderScheduleDtoValidator : AbstractValidator<CreateReminderScheduleDto>
+    public class CreateReminderScheduleValidator : AbstractValidator<CreateReminderScheduleDto>
     {
-        public CreateReminderScheduleDtoValidator()
+        public CreateReminderScheduleValidator()
         {
             RuleFor(x => x.ScheduleType)
                 .IsInEnum().WithMessage("Invalid ScheduleType");

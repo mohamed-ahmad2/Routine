@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Features\Reminders\UpdateReminder\NewFolder\**" />
-    <Content Remove="Features\Reminders\UpdateReminder\NewFolder\**" />
-    <EmbeddedResource Remove="Features\Reminders\UpdateReminder\NewFolder\**" />
-    <None Remove="Features\Reminders\UpdateReminder\NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="15.1.3" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
     <PackageReference Include="MediatR" Version="14.1.0" />
@@ -46,6 +39,7 @@
     <Folder Include="Features\ReminderLogs\GetReminderLogs\" />
     <Folder Include="Features\Reminders\DeleteReminder\" />
     <Folder Include="Features\Reminders\ToggleReminderEnabled\" />
+    <Folder Include="Features\Reminders\UpdateReminder\" />
   </ItemGroup>
 
 </Project>
