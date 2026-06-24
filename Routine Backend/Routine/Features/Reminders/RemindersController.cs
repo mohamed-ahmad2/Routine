@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Routine.Features.Reminders.CreateReminder;
+using Routine.Features.Reminders.DeleteReminder;
 using Routine.Features.Reminders.GetReminderById;
 using Routine.Features.Reminders.GetReminders;
 using Routine.Features.Reminders.UpdateReminder;
@@ -55,6 +56,16 @@ namespace Routine.Features.Reminders
             // test
             var userId = 1;
             await _mediator.Send(new UpdateReminderCommand(userId, reminderId, dto), cancellationToken);
+            return NoContent();
+        }
+
+        [HttpDelete("{reminderId:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int reminderId, CancellationToken cancellationToken)
+        {
+            //var userId = (int)HttpContext.Items["UserId"]!;
+            // test
+            var userId = 1;
+            await _mediator.Send(new DeleteReminderCommand(userId, reminderId), cancellationToken);
             return NoContent();
         }
     }
