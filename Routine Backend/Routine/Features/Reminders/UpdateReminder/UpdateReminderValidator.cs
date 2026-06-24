@@ -1,16 +1,17 @@
 ﻿using FluentValidation;
 
-namespace Routine.Features.Reminders.CreateReminder
+namespace Routine.Features.Reminders.UpdateReminder
 {
-    public class CreateReminderValidator : AbstractValidator<CreateReminderDto>
+    public class UpdateReminderValidator : AbstractValidator<UpdateReminderDto>
     {
-        public CreateReminderValidator() { 
-            RuleFor(x =>  x.Title)
+        public UpdateReminderValidator()
+        {
+            RuleFor(x => x.Title)
                 .NotEmpty().WithMessage("Title is required")
                 .MaximumLength(100).WithMessage("Title must not exceed 100 characters");
 
             RuleFor(x => x.Icon)
-                .NotEmpty().WithMessage("Icon is requred");
+                .NotEmpty().WithMessage("Icon is required");
 
             RuleFor(x => x.Category)
                 .NotEmpty().WithMessage("Category is required");
@@ -22,7 +23,7 @@ namespace Routine.Features.Reminders.CreateReminder
                 .NotEmpty().WithMessage("At least one schedule is required");
 
             RuleForEach(x => x.Schedules)
-                .SetValidator(new CreateReminderScheduleValidator());
+                .SetValidator(new UpdateReminderScheduleValidator());
         }
     }
 }

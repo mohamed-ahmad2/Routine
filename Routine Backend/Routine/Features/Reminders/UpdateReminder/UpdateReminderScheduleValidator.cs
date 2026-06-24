@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using Routine.Entities;
 
-namespace Routine.Features.Reminders.CreateReminder
+namespace Routine.Features.Reminders.UpdateReminder
 {
-    public class CreateReminderScheduleDtoValidator : AbstractValidator<CreateReminderScheduleDto>
+    public class UpdateReminderScheduleValidator : AbstractValidator<UpdateReminderScheduleDto>
     {
-        public CreateReminderScheduleDtoValidator()
+        public UpdateReminderScheduleValidator()
         {
             RuleFor(x => x.ScheduleType)
                 .IsInEnum().WithMessage("Invalid ScheduleType");
