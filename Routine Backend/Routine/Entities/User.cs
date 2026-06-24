@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public string DisplayName { get; set; } = string.Empty;
+        public string DeviceId { get; set; } = string.Empty;
         public string? AvatarPath { get; set; }
 
         public string City { get; set; } = string.Empty;
