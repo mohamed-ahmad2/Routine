@@ -44,7 +44,6 @@
     <Folder Include="Features\PrayerTimes\SyncPrayerTimes\" />
     <Folder Include="Features\ReminderLogs\LogReminderAction\" />
     <Folder Include="Features\ReminderLogs\GetReminderLogs\" />
-    <Folder Include="Features\Reminders\DeleteReminder\" />
     <Folder Include="Features\Reminders\ToggleReminderEnabled\" />
   </ItemGroup>
 
