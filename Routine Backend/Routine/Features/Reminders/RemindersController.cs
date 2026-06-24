@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Routine.Features.Reminders.CreateReminder;
+using Routine.Features.Reminders.GetReminderById;
 using Routine.Features.Reminders.GetReminders;
 using Routine.Features.Reminders.UpdateReminder;
 using System.Security.Claims;
@@ -25,6 +26,16 @@ namespace Routine.Features.Reminders
             return Ok(result);
         }
 
+        [HttpGet("{reminderId:int}")]
+        public async Task<IActionResult> GetById([FromRoute] int reminderId, CancellationToken cancellationToken)
+        {
+            //var userId = (int)HttpContext.Items["UserId"]!;
+            // test
+            var userId = 1;
+            var result = await _mediator.Send(new GetReminderByIdQuery(userId, reminderId), cancellationToken);
+            return Ok(result);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateReminderDto dto, CancellationToken cancellationToken)
         {
@@ -33,7 +44,7 @@ namespace Routine.Features.Reminders
             // test 
             var userId = 1;
             var reminderId = await _mediator.Send(new CreateReminderCommand(userId, dto), cancellationToken);
-            return CreatedAtAction(nameof(Create), new { id = reminderId }, new { id = reminderId });
+            return CreatedAtAction(nameof(GetById), new { reminderId = reminderId }, new { id = reminderId });
         }
 
         [HttpPut("{reminderId:int}")]
